@@ -11,5 +11,6 @@ RUN apt-get update &&\
 FROM openjdk:17-slim-bullseye
 ENV LANG=C.UTF-8
 COPY --from=builder /build/target/amzn-stock-monitoring.jar /app/
+WORKDIR /app
 VOLUME ["/app/logs", "/app/db"]
 CMD java ${JAVA_OPTS} -jar /app/amzn-stock-monitoring.jar
