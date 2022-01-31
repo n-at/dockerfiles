@@ -11,6 +11,11 @@ RUN apt-get update &&\
 ############################################################################### \
 
 FROM alpine:latest
+ARG TIMEZONE="Europe/Moscow"
+RUN apk -update add tzdata &&\
+    cp "/usr/share/zoneinfo/${TIMEZONE}" "/etc/localtime" &&\
+    echo "${TIMEZONE}" > "/etc/timezone" &&\
+    apk del tzdata
 COPY --from=builder /build/app /app/
 USER 1000
 WORKDIR app
