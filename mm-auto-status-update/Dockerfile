@@ -12,7 +12,7 @@ RUN apt-get update &&\
 
 FROM alpine:latest
 ARG TIMEZONE="Europe/Moscow"
-RUN apk -update add tzdata &&\
+RUN apk add tzdata &&\
     cp "/usr/share/zoneinfo/${TIMEZONE}" "/etc/localtime" &&\
     echo "${TIMEZONE}" > "/etc/timezone" &&\
     apk del tzdata
