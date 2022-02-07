@@ -19,7 +19,7 @@ COPY --from=builder /build/assets /app/assets/
 COPY --from=builder /build/templates /app/templates/
 COPY --from=builder /build/app /app/
 USER 1000
-WORKDIR app
+WORKDIR /app
 VOLUME ["/app/data"]
 EXPOSE 3000
 CMD ["./app"]
