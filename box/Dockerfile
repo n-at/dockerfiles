@@ -38,5 +38,5 @@ RUN apt-get update &&\
 COPY --from=builder /build/app /app/
 WORKDIR /app
 USER 1000
-VOLUME ["/app/logs"]
+VOLUME ["/app/logs", "/app/dumps"]
 CMD ./app | tee -ia "/app/logs/$(date +"%Y_%m_%d_%H_%M_%S").log"
