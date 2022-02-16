@@ -1,12 +1,9 @@
 FROM golang:1.17 as builder
-RUN apt-get update &&\
-    apt-get install -y git &&\
-    \
-    git clone "https://github.com/n-at/mm-auto-status-update" /build &&\
+RUN git clone "https://github.com/n-at/mm-auto-status-update" /build &&\
     cd /build &&\
     CGO_ENABLED=0 GOOS=linux go build -a -o app .
 
-############################################################################### \
+###############################################################################
 
 FROM alpine:latest
 ARG TIMEZONE="Europe/Moscow"
