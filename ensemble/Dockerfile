@@ -30,7 +30,8 @@ RUN apt-get update &&\
     echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu focal main" >> /etc/apt/sources.list.d/ansible.list &&\
     apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367 && \
     apt-get update &&\
-    apt-get install -y ansible
+    apt-get install -y ansible &&\
+    chmod 0777 /app
 
 USER 1000
 
