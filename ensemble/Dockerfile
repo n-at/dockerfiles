@@ -37,6 +37,8 @@ RUN apt-get update &&\
 
 USER ensemble
 
+RUN ansible-galaxy collection install ansible.posix
+
 WORKDIR /app
 
 EXPOSE 3000
