@@ -23,7 +23,7 @@ COPY --from=builder /build/ssh_add_key.sh /app/
 COPY --from=builder /build/app /app/
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV SSH_AUTH_SOCK=/var/run/ssh-agent.sock
+ENV SSH_AUTH_SOCK=/app/ssh-agent.sock
 
 RUN apt-get update &&\
     apt-get install -y git openssh-client sshpass gnupg2 ca-certificates &&\
