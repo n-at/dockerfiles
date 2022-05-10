@@ -45,5 +45,6 @@ EXPOSE 3000
 
 VOLUME ["/app/data", "/app/keys"]
 
-CMD ssh-agent -a ${SSH_AUTH_SOCK} &&\
+CMD rm ${SSH_AUTH_SOCK} &&\
+    ssh-agent -a ${SSH_AUTH_SOCK} &&\
     ./app
