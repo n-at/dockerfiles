@@ -22,6 +22,8 @@ COPY --from=builder /build/templates /app/templates/
 COPY --from=builder /build/ssh_add_key.sh /app/
 COPY --from=builder /build/app /app/
 
+ADD run.sh /app/run.sh
+
 ENV DEBIAN_FRONTEND=noninteractive
 ENV SSH_AUTH_SOCK=/app/ssh-agent.sock
 
@@ -45,6 +47,4 @@ EXPOSE 3000
 
 VOLUME ["/app/data", "/app/keys"]
 
-CMD rm ${SSH_AUTH_SOCK} &&\
-    ssh-agent -a ${SSH_AUTH_SOCK} &&\
-    ./app
+CMD ./run.sh
