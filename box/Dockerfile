@@ -5,9 +5,9 @@ RUN git clone "https://github.com/n-at/box" /build &&\
 
 ###############################################################################
 
-FROM debian:stretch
+FROM debian:bullseye
 RUN apt-get update &&\
-    apt-get install -y wget gnupg libncurses5 libssl1.0 &&\
+    apt-get install -y wget gnupg libncurses5 libssl1.1 &&\
     \
     echo "deb http://apt.postgresql.org/pub/repos/apt bullseye-pgdg main" > /etc/apt/sources.list.d/pgdg.list &&\
     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - &&\
@@ -19,10 +19,10 @@ RUN apt-get update &&\
     rm mongodb5.tar.gz &&\
     mv "mongodb-database-tools-ubuntu2004-x86_64-100.5.2" "mongodb5" &&\
     \
-    wget "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-ubuntu1604-4.0.28.tgz" -O mongodb4.tar.gz &&\
+    wget "https://fastdl.mongodb.org/linux/mongodb-linux-x86_64-4.0.28.tgz" -O mongodb4.tar.gz &&\
     tar -xvf mongodb4.tar.gz &&\
     rm mongodb4.tar.gz &&\
-    mv "mongodb-linux-x86_64-ubuntu1604-4.0.28" "mongodb4" &&\
+    mv "mongodb-linux-x86_64-4.0.28" "mongodb4" &&\
     \
     wget "https://github.com/FirebirdSQL/firebird/releases/download/R2_5_9/FirebirdSS-2.5.9.27139-0.amd64.tar.gz" -O firebird.tar.gz &&\
     tar -xvf firebird.tar.gz &&\
