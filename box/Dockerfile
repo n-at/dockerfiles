@@ -5,9 +5,9 @@ RUN git clone "https://github.com/n-at/box" /build &&\
 
 ###############################################################################
 
-FROM debian:bullseye
+FROM debian:stretch
 RUN apt-get update &&\
-    apt-get install -y wget gnupg libncurses5 &&\
+    apt-get install -y wget gnupg libncurses5 libssl1.0 &&\
     \
     echo "deb http://apt.postgresql.org/pub/repos/apt bullseye-pgdg main" > /etc/apt/sources.list.d/pgdg.list &&\
     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - &&\
