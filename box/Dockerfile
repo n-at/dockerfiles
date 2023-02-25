@@ -7,12 +7,12 @@ RUN git clone "https://github.com/n-at/box" /build &&\
 
 FROM debian:bullseye
 RUN apt-get update &&\
-    apt-get install -y wget gnupg libncurses5 libssl1.1 &&\
+    apt-get install -y wget gnupg libncurses5 libssl1.1 mariadb-client &&\
     \
     echo "deb http://apt.postgresql.org/pub/repos/apt bullseye-pgdg main" > /etc/apt/sources.list.d/pgdg.list &&\
     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - &&\
     apt-get update &&\
-    apt-get install -y postgresql-client-14 &&\
+    apt-get install -y postgresql-client-15 &&\
     \
     wget "https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2004-x86_64-100.5.2.tgz" -O mongodb5.tar.gz &&\
     tar -xvf mongodb5.tar.gz &&\
