@@ -1,7 +1,6 @@
 FROM golang:1.20 as builder
 RUN git clone "https://github.com/n-at/box" /build &&\
     cd /build &&\
-    git checkout v0.0.1 &&\
     CGO_ENABLED=0 GOOS=linux go build -a -o app .
 
 ###############################################################################
