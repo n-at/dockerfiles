@@ -34,4 +34,4 @@ EXPOSE 3000
 
 VOLUME ["/app/data", "/app/uploads"]
 
-CMD app
+CMD ./app
