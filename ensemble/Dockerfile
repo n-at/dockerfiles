@@ -1,10 +1,10 @@
-FROM golang:1.19 as builder
+FROM golang:1.21 as builder
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update &&\
     apt-get install -y git curl gpg &&\
     curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | gpg --dearmor >> /nodesource-key.gpg &&\
-    echo "deb [signed-by=/nodesource-key.gpg] https://deb.nodesource.com/node_16.x bullseye main" >> /etc/apt/sources.list.d/nodesource.list &&\
-    echo "deb-src [signed-by=/nodesource-key.gpg] https://deb.nodesource.com/node_16.x bullseye main" >> /etc/apt/sources.list.d/nodesource.list &&\
+    echo "deb [signed-by=/nodesource-key.gpg] https://deb.nodesource.com/node_20.x bookworm main" >> /etc/apt/sources.list.d/nodesource.list &&\
+    echo "deb-src [signed-by=/nodesource-key.gpg] https://deb.nodesource.com/node_20.x bookworm main" >> /etc/apt/sources.list.d/nodesource.list &&\
     apt-get install -y nodejs npm &&\
     \
     git clone "https://github.com/n-at/ensemble" /build &&\
