@@ -1,7 +1,8 @@
 FROM golang:1.22 as builder
 
-RUN git clone https://github.com/xvzc/SpoofDPI build &&\
-    cd build &&\
+RUN cd / &&\
+    git clone https://github.com/xvzc/SpoofDPI build &&\
+    cd /build &&\
     git checkout c31fc376108be11e02daa1b09c5fedee921fd7ee &&\
     go build -o app ./cmd/... &&\
     ls -hal
