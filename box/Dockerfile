@@ -6,8 +6,9 @@ RUN git clone "https://github.com/n-at/box" /build &&\
 ###############################################################################
 
 FROM ubuntu:24.04
-RUN apt-get update &&\
-    apt-get install -y wget gnupg libncurses6 libssl3t64 mariadb-client &&\
+RUN echo "deb http://security.ubuntu.com/ubuntu focal-security main universe" > /etc/apt/sources.list.d/ubuntu-focal-sources.list &&\
+    apt-get update &&\
+    apt-get install -y wget gnupg libncurses5 libssl1.1 mariadb-client &&\
     \
     echo "deb http://apt.postgresql.org/pub/repos/apt noble-pgdg main" > /etc/apt/sources.list.d/pgdg.list &&\
     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - &&\
