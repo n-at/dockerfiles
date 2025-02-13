@@ -1,4 +1,4 @@
-FROM golang:1.20 as builder
+FROM golang:1.23 as builder
 RUN git clone "https://github.com/n-at/box" /build &&\
     cd /build &&\
     CGO_ENABLED=0 GOOS=linux go build -a -o app .
