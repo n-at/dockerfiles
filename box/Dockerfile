@@ -13,7 +13,7 @@ RUN echo "deb http://security.ubuntu.com/ubuntu focal-security main universe" > 
     echo "deb http://apt.postgresql.org/pub/repos/apt noble-pgdg main" > /etc/apt/sources.list.d/pgdg.list &&\
     wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - &&\
     apt-get update &&\
-    apt-get install -y postgresql-client-15 &&\
+    apt-get install -y postgresql-client-17 &&\
     \
     wget "https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2004-x86_64-100.5.2.tgz" -O mongodb5.tar.gz &&\
     tar -xf mongodb5.tar.gz &&\
