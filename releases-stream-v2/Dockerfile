@@ -6,6 +6,7 @@ RUN git clone "https://github.com/n-at/releases-stream-v2" /build &&\
 ###############################################################################
 
 FROM ubuntu:24.04
+RUN apt-get update && apt-get install -y ca-certificates
 COPY --from=builder /build/app /app/
 WORKDIR /app
 USER 1000
